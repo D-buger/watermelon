@@ -21,12 +21,14 @@ public class Fruit : MonoBehaviour
     private eFruit type;
     
     private float conversion =  0.00026f; //m를 픽셀 단위로 변환 (반올림) 
+    private float timeStep;
 
     private float gravity;
-    private float accel = 0f;
     private Vector2 currentSpeed =Vector2.zero;
 
     private Rect allowedArea = new Rect(-2.5f, -4.5f, 5f, 9f);
+    [SerializeField]
+    private bool isAllowedArea = false;
 
     //private Vector2 position;
     //public Vector2 Position => position;
@@ -37,7 +39,9 @@ public class Fruit : MonoBehaviour
 
     private void Awake()
     {
-        gravity = Physics2D.gravity.y * conversion;
+        timeStep = 1 / Time.fixedDeltaTime; //50
+        gravity = Physics2D.gravity.y * conversion * 1.54f; 
+        Debug.Log(gravity);
     }
 
     public void Update()
@@ -46,11 +50,10 @@ public class Fruit : MonoBehaviour
 
     public void FixedUpdate()
     {
-        accel += gravity;
+        currentSpeed.y += gravity;
 
-        currentSpeed.y = accel;
-
-        CheckInActiveAllowedArea();
+        if(isAllowedArea)
+            CheckInActiveAllowedArea();
 
         transform.position = new Vector2(transform.position.x, transform.position.y + currentSpeed.y);
     }
