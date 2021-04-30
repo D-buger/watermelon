@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 994445984}
   - component: {fileID: 994445987}
   - component: {fileID: 994445986}
+  - component: {fileID: 994445988}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -215,8 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57bed4528e0519f49aa3ce95a945daa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  sprite: {fileID: 0}
+  radius: 1
+  sprite: {fileID: 21300000, guid: 811a2dee3be81d645a49566b50aedd11, type: 3}
   color: {r: 0, g: 0.19058895, b: 1, a: 1}
   isSprite: 1
 --- !u!4 &994445985
@@ -282,6 +283,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &994445988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994445983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7615c3a5744a91409f0da0f434952ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAllowedArea: 0
 --- !u!1 &1389115264 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1888107523943466, guid: 06c4871d487f9714bb789e978451a3e2, type: 3}
@@ -475,7 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57bed4528e0519f49aa3ce95a945daa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 2
   sprite: {fileID: 0}
   color: {r: 0.21226418, g: 0.4280675, b: 1, a: 1}
   isSprite: 0

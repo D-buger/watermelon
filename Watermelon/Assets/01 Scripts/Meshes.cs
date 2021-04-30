@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class Meshes
 {
+    //기본 틀이 된 코드.
     public static Mesh ColorCircleMesh(Vector2 v0, Vector2 v1, Color fillColor)
     {
         var radius = Vector2.Distance(v0, v1);
@@ -47,6 +48,8 @@ public static class Meshes
         return mesh;
 
     }
+
+    //내 입맛대로 일부 바꾼 코드
     public static Mesh SpriteCircleMesh(Vector2 v0, Vector2 v1, Sprite sprite)
     {
         var radius = Vector2.Distance(v0, v1);
@@ -65,11 +68,21 @@ public static class Meshes
         
         var triangles = new Triangulator(circleVertices).Triangulate();
 
+        Vector2[] uvs = Enumerable.Range(0, circleVertices.Length)
+            .Select(i =>
+            {
+                return new Vector2( radius + (circleVertices[i].x),
+                                    radius + (circleVertices[i].y)) / (2 * radius);
+            })
+            .ToArray();
+
+
         var mesh = new Mesh
         {
             name = "Circle",
             vertices = circleVertices.ToVector3(),
-            triangles = triangles
+            triangles = triangles,
+            uv = uvs
         };
 
         mesh.RecalculateNormals();

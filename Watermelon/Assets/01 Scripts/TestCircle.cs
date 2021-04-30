@@ -30,6 +30,7 @@ public class TestCircle : MonoBehaviour
 
         if(isSprite)
             gameObject.GetComponent<Renderer>().material.mainTexture = sprite.texture;
+        
 
         meshRenderer.mesh = mesh;
     }
